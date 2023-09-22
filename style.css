@@ -4,3 +4,23 @@ html {
   font-family: "Roboto";
   background-color: #f9ee82; /* Lemon Palette: https://www.color-hex.com/color-palette/82918 */
 }
+
+/* Changing header 1's font's for uniformity */
+.h1 {
+  font-family:'Courier New', Courier, monospace;
+}
+
+/* I'll fix it but adding the navigation bar*/
+.topnav {
+  background-color: #37393A;
+  overflow: hidden;
+}
+
+.topnav a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
