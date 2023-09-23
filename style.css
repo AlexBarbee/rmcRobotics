@@ -10,17 +10,42 @@ html {
   font-family:'Courier New', Courier, monospace;
 }
 
-/* I'll fix it but adding the navigation bar*/
-.topnav {
-  background-color: #37393A;
+/* Making the fixed navigation bar; needs a bit more maintence. */
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
+  background-color: #37393A;
+  color: white;
+  position: fixed; 
+  top: 0;
+  width: 100%;
 }
 
-.topnav a {
+li{
   float: left;
+}
+
+li a {
+  display: block;
   color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  margin-right: 25px;
 }
+
+li a:hover {
+  background-color: #77B6EA;
+  color: white;
+}
+
+h1 {
+  margin-top: 65px;
+  text-align: center;
+}
+body {
+  margin: 0;
+}
+
