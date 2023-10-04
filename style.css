@@ -2,28 +2,29 @@ html {
   height: 100%;
   width: 100%;
   font-family: "Roboto";
-  background-color: #f9ee82; /* Lemon Palette: https://www.color-hex.com/color-palette/82918 */
+  background-color: #f9ee82;
+  /* Lemon Palette: https://www.color-hex.com/color-palette/82918 */
 }
 
 /* Changing header 1's font's for uniformity */
 .h1 {
-  font-family:'Courier New', Courier, monospace;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 /* Making the fixed navigation bar; needs a bit more maintence. */
-ul{
+ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #37393A;
   color: white;
-  position: fixed; 
+  position: fixed;
   top: 0;
   width: 100%;
 }
 
-li{
+li {
   float: left;
 }
 
@@ -45,10 +46,19 @@ h1 {
   margin-top: 65px;
   text-align: center;
 }
+
 body {
   margin: 0;
+  color: #37393A;
 }
 
 h2 {
   text-align: center;
+}
+
+p {
+  margin: auto;
+  padding: 10px;
+  background-color: #E8EEF2;
+  max-width: 50%;
 }
