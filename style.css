@@ -73,3 +73,10 @@ img {
   display: block;
 
 }
+
+form{
+  text-align: center;
+}
+.email{
+  margin-left: auto;
+}
