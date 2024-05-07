@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-
+<!-- The home page (also hit me if i don't add enough comments) -->
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>replit</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
@@ -52,23 +52,94 @@
   <p>We meet in Copley 214 come join us!</p>
 
   <p>Give us your name & email if you'd like!</p>
-  <form>
-    <label for="fname">First name: </label>
-    <input type="text" id="fname" name="fname"><br>
-    <label for="lname">Last name: </label>
-    <input type="text" id="lname" name="lname"><br>
-    <label for="email"> Email: </label>
-    <input type="text" id="email" name="email"><br>
-    <input type="submit" value="Submit">
+  <!-- This goes to the php file if submit is pressed. Implementing a back button and trying to implement sql database-->
+  <!-- implementing formhandling php -->
+  <div id="form">
+    <form id="contact-form" method="post" action="">
+      <div id="input">
+      <label for="fname">First name: </label>
+      <input type="text" id="fname" name="fname" minlength="3" required><br>
+      </div>
+      
+      <div id="input">
+      <label for="lname">Last name: </label>
+      <input type="text" id="lname" name="lname" minlength="3" required><br>
+      </div>
+
+      <div id="input">
+      <label for="email"> Email: </label>
+      <input type="email" id="email" name="email" required><br>
+      </div>
+    <input class="submit" type="submit" value="Submit">
   </form>
+  </div>
+<!-- wait bro i haven't tested this code yet but a small explantation it's implementation of jQuery because a lot of things have said I need jQuery to cleanly validate the php form which has been a rollercoaster :p -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+  <script>
+   $(document).ready(function() {
+     $("#contact-form").validate({
+       rules: {
+         fname: {
+           required: true,
+           minlength: 3
+         },
+         lname: {
+           required: true,
+           minlength: 3
+         },
+         email: {
+           required: true,
+           email: true
+         }
+       }
+     });
+   });
+    //i love javascript formatting!
+    //so i've concluded it does something positive i believe
+    $("form").on("submit", function(e){
+      var dataString = $(this).seralize();
+      alert(dataString); return false;
+      $.ajax({
+        type: "POST",
+        url: "bin/process.php",
+        data: dataString,
+        success: function () {
+          $("#contact-form").html("<div id='message'></div>");
+         $("#message")
+          .html("<h2>Contact Form Submitted!</h2>")
+          .append("<p>We will be in touch. </p>")
+          .hide()
+          .fadeIn(1500, function() {
+            $("#message").append(
+              "<img id='checkmark' src='images/check.png' />"
+            );
+          });
+        }
+      });
+      e.preventDefault();
+      
+    });
+    document.write("Hello");
+  </script>
 
-  <script src="script.js"></script>
+  <!-- php for form validation / later inputting into sql-->
+  <!-- Try this implementation on another IDE (atom?)
+  <?php
+  $first = $last = $email = "";
+  if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $first = test_input($POST["fname"]);
+    $last = test_input($POST["lname"]);
+    $email = test_input($POST["email"]);
+  }
 
-  <!--
-  This script places a badge on your repl's full-browser view back to your repl's cover
-  page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
-  teal, blue, blurple, magenta, pink!
-  -->
+  function test_input($data){
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+  ?>-->
 </body>
 
 </html>
