@@ -13,7 +13,6 @@
   <ul id="topnav">
     <li><a href="index.html"> Home </a></li>
     <li><a href="software.html">Software</a></li>
-    <li><a href="mission.html">Mission</a></li>
     <li><a href="photos.html">Photos</a></li>
     <li><a href="contacts.html">Contacts</a></li> 
     <li><a href="events.html">Events</a></li>
@@ -37,7 +36,7 @@
   <p><b>Treasurer:</b> <a href="LenoraWilliams@go.rmc.edu">LenoraWilliams@go.rmc.edu</a> </p>
 
   <!-- Add Small Photos-->
-
+ <!-- Gonna add everything into an ide to test my php items -->
   <h2>How to join</h2>
   <!-- Create a link -->
   <p>Join our Discord to talk to us!</p>
@@ -55,7 +54,7 @@
   <!-- This goes to the php file if submit is pressed. Implementing a back button and trying to implement sql database-->
   <!-- implementing formhandling php -->
   <div id="form">
-    <form id="contact-form" method="post" action="">
+    <form id="contact-form" method="post" action="formHandling.php">
       <div id="input">
       <label for="fname">First name: </label>
       <input type="text" id="fname" name="fname" minlength="3" required><br>
@@ -74,10 +73,9 @@
   </form>
   </div>
 <!-- wait bro i haven't tested this code yet but a small explantation it's implementation of jQuery because a lot of things have said I need jQuery to cleanly validate the php form which has been a rollercoaster :p -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+ 
   <script>
-   $(document).ready(function() {
+   /*$(document).ready(function() {
      $("#contact-form").validate({
        rules: {
          fname: {
@@ -94,10 +92,11 @@
          }
        }
      });
-   });
+   });*/
     //i love javascript formatting!
     //so i've concluded it does something positive i believe
-    $("form").on("submit", function(e){
+    //it does the required form but still submits anyways so that's kind of an issue
+    /*$("form").on("submit", function(e){
       var dataString = $(this).seralize();
       alert(dataString); return false;
       $.ajax({
@@ -120,7 +119,7 @@
       e.preventDefault();
       
     });
-    document.write("Hello");
+    document.write("Hello");*/
   </script>
 
   <!-- php for form validation / later inputting into sql-->
